@@ -1,31 +1,18 @@
 <template>
-  <div class="drawer">
-    <div class="drawer-container">
-      <h2>show drawer</h2>
+  <transition name="fade">
+    <div class="drawer" v-show="isshow">
+      <div class="drawer-container">
+        <Drawercard />
+      </div>
     </div>
-  </div>
+  </transition>
 </template>
 
 <script setup>
-import { defineProps, watch } from "vue";
+import Drawercard from './Drawercard.vue';
 const props = defineProps({
   isshow: Boolean,
 });
-
-// 当isshow变化时，为drawer-container添加show或hidden类
-watch(
-  () => props.isshow,
-  (val) => {
-    const drawerContainer = document.querySelector(".drawer-container");
-    if (val) {
-      drawerContainer.classList.add("show");
-      drawerContainer.classList.remove("hidden");
-    } else {
-      drawerContainer.classList.add("hidden");
-      drawerContainer.classList.remove("show");
-    }
-  }
-);
 </script>
 
 <style scoped>
@@ -45,42 +32,24 @@ watch(
   padding: 10px;
   bottom: 30px;
   left: 50%;
+  border-radius: 10px;
   background-color: #f7f7f7;
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  transform: translate3d(-50%, 0, 0);
-  opacity: 0;
-  animation-fill-mode: forwards;
+  transform: translateX(-50%);
 }
 
-.show {
-  opacity: 1;
-  animation: InScreen 1s;
+.fade-enter-active,
+.fade-leave-active {
+  transition: all .8s ease;
 }
-
-.hidden {
-  opacity: 0;
-  animation: OutScreen 1s;
+.fade-enter-from,
+.fade-leave-to {
+  transform: translateY(100%);
 }
-
-@keyframes OutScreen {
-  from {
-    opacity: 1;
-    transform: translate3d(-50%, 0, 0);
-  }
-  to {
-    transform: translate3d(-50%, 100%, 0);
-  }
-}
-
-@keyframes InScreen {
-  from {
-    opacity: 0;
-    transform: translate3d(-50%, 100%, 0);
-  }
-  to {
-    transform: translate3d(-50%, 0, 0);
-  }
+.fade-enter-to,
+.fade-leave-from{
+  transform: translateY(0%);
 }
 </style>

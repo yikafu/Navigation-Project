@@ -37,5 +37,9 @@ onMounted(() => {
 body {
   overflow: hidden;
   background-image: url("https://files.codelife.cc/wallpaper/wallspic/20231029gekf81.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
 }
 </style>

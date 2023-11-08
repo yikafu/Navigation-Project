@@ -69,6 +69,6 @@ const props = defineProps({
   height: 100%;
   background: rgba(255, 255, 255, 0.5);
   backdrop-filter: blur(10px);
-  z-index: 22;
+  z-index: 2;
 }
 </style>
