@@ -7,7 +7,6 @@
         <img class="logo" src="/src/assets/vue.svg" />
         <div class="hello-area">
           <div>Wellcome to this site</div>
-          <div class="bottom_text">------</div>
         </div>
       </div>
     </div>

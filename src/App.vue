@@ -1,6 +1,6 @@
 <template>
   <Maincontainer :isblur="isshow" />
-  <Footerinfo />
+  <Down />
   <Drawer :isshow="isshow" />
 </template>
 
@@ -8,19 +8,13 @@
 import { ref, onMounted } from "vue";
 
 import Maincontainer from "./components/Maincontainer.vue";
-import Footerinfo from "./components/Footerinfo.vue";
+import Down from "./components/Down.vue";
 import Drawer from "./components/Drawer.vue";
-
-const components = {
-  Maincontainer,
-  Footerinfo,
-  Drawer,
-}
 
 const isshow = ref(false);
 
 function changeShow() {
-  window.addEventListener('wheel', handleWheelEvent);
+  window.addEventListener("wheel", handleWheelEvent);
 }
 
 function handleWheelEvent(e) {
@@ -30,7 +24,6 @@ function handleWheelEvent(e) {
 onMounted(() => {
   changeShow();
 });
-
 </script>
 
 <style>

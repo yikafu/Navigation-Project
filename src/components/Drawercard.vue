@@ -1,21 +1,29 @@
 <template>
+  <div class="select-spans">
+    <span v-for="(key, index) in Object.keys(datas)" :key="index">{{
+      key
+    }}</span>
+  </div>
   <div class="card">
-    <div class="select-spans">
-      <span v-for="(key, index) in Object.keys(datas)" :key="index">{{
-        key
-      }}</span>
-    </div>
-
-    <div class="card-container" v-for="(key, index) in Object.keys(datas)" :key="index">
-        <a :href="item.url" target="_blank" v-for="(item, index) in datas[key]" :key="index">
-          <div class="icon">
-            {{ item.name[0] }}
-          </div>
-          <div class="info">
-            <div class="title">{{ item.name }}</div>
-            <div class="description">{{ item.description }}</div>
-          </div>
-        </a>
+    <div
+      class="card-container"
+      v-for="(key, index) in Object.keys(datas)"
+      :key="index"
+    >
+      <a
+        :href="item.url"
+        target="_blank"
+        v-for="(item, index) in datas[key]"
+        :key="index"
+      >
+        <div class="icon">
+          {{ item.name[0] }}
+        </div>
+        <div class="info">
+          <div class="title">{{ item.name }}</div>
+          <div class="description">{{ item.description }}</div>
+        </div>
+      </a>
     </div>
   </div>
 </template>
@@ -55,7 +63,9 @@ function handleClick() {
   height: 100%;
   background-color: #f7f7f7;
   border-radius: 10px;
-  overflow: hidden;
+  overflow-y: auto;
+  padding: 10px;
+  box-sizing: border-box;
 }
 .card-container {
   display: none;
@@ -79,7 +89,7 @@ function handleClick() {
   font-size: 16px;
   font-weight: 600;
   cursor: pointer;
-  margin: 0 3rem;
+  margin: 0 1rem;
 }
 .active-span {
   color: #1162f7;
@@ -88,8 +98,6 @@ function handleClick() {
   display: grid !important;
   grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
   grid-gap: 20px;
-  overflow-y: auto;
-  flex: auto;
 }
 
 /* 图标区  信息区*/
