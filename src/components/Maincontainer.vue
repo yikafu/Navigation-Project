@@ -5,15 +5,14 @@
       <div class="img-shadow"></div>
       <div class="inner">
         <img class="logo" src="/src/assets/vue.svg" />
-        <div class="hello-area">
-          <div>Wellcome to this site</div>
-        </div>
       </div>
     </div>
+    <Search />
   </div>
 </template>
 
 <script setup>
+import Search from './Search.vue';
 const props = defineProps({
   isblur: Boolean,
 });
@@ -21,13 +20,11 @@ const props = defineProps({
 
 <style scoped>
 .main-container {
-  text-align: center;
-  border-radius: 20px;
   width: 300px;
   height: 300px;
   position: absolute;
   left: 50%;
-  top: 50%;
+  top: 30%;
   transform: translate(-50%, -50%);
 }
 /* Logo区域 */
@@ -46,19 +43,6 @@ const props = defineProps({
 .inner {
   position: relative;
   cursor: pointer;
-}
-
-.hello-area {
-  color: #000;
-  width: 18.75rem;
-  text-align: center;
-  position: absolute;
-  left: 50%;
-  top: 200px;
-  transform: translate(-50%, -50%);
-  font-size: 1.5rem;
-  opacity: 1;
-  transition: all 1s;
 }
 
 /* 实现遮盖层 */
