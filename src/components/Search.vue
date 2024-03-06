@@ -1,32 +1,25 @@
 <template>
   <div id="search">
-    <form
-      action="https://www.bing.com/search"
-      target="_blank"
-      @click="submitForm"
-    >
-      <input
-        type="text"
-        name="q"
-        placeholder="输入搜索内容"
-        v-model="searchText"
-      />
-      <button type="submit">搜索</button>
-    </form>
+    <div class="form">
+      <input class="search-input" placeholder="输入搜索内容" v-model="searchText" />
+      <button class="search-button" @click="handleClick">搜索</button>
+    </div>
   </div>
 </template>
 
 <script setup>
 import { ref } from "vue";
-
 const searchText = ref("");
-
-function submitForm() {
-  searchText.value = "";
-}
+const handleClick = () => {
+  if (!searchText.value) {
+    alert("请输入搜索内容");
+    return;
+  }
+  window.open(`https://cn.bing.com/search?q=${searchText.value}`);
+};
 </script>
 
-<style>
+<style scoped>
 #search {
   display: flex;
   justify-content: center;
@@ -34,7 +27,7 @@ function submitForm() {
   margin-top: 20px;
 }
 
-form {
+.form {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -42,7 +35,7 @@ form {
   border-radius: 31px;
 }
 
-input[type="text"] {
+.search-input {
   width: 550px;
   height: 40px;
   color: #000000;
@@ -51,7 +44,7 @@ input[type="text"] {
   border-radius: 31px;
 }
 
-button[type="submit"] {
+.search-button {
   width: 55px;
   height: 40px;
   font-size: 14px;
@@ -59,7 +52,7 @@ button[type="submit"] {
   border-left: 1px #ccc solid;
   cursor: pointer;
 }
-button[type="submit"]:hover {
+.search-button:hover {
   color: #06554f;
 }
 </style>

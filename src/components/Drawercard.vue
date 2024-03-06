@@ -30,7 +30,7 @@
 
 <script setup>
 import { ref, onMounted } from "vue";
-import data from "../data/data.json";
+import data from "@/data/data.js";
 const datas = ref(data);
 
 onMounted(() => {

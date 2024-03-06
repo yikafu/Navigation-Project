@@ -1,7 +1,7 @@
 <template>
   <div class="down">
     <span>Whell Down</span>
-    <img src="../assets/down.svg" alt="" />
+    <img src="@/assets/down.svg" alt="" />
   </div>
 </template>
 

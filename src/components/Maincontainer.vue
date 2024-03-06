@@ -4,7 +4,7 @@
     <div class="logo-area">
       <div class="img-shadow"></div>
       <div class="inner">
-        <img class="logo" src="/src/assets/vue.svg" />
+        <img class="logo" src="@/assets/vue.svg" />
       </div>
     </div>
     <Search />
